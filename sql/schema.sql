@@ -1,6 +1,6 @@
 -- Production Data Pipeline Schema
 
--- 1️⃣ Products table
+-- Products table
 CREATE TABLE products (
     product_id SERIAL PRIMARY KEY,
     product_name VARCHAR(100) NOT NULL,
@@ -8,7 +8,7 @@ CREATE TABLE products (
     max_weight DECIMAL(10,2) NOT NULL
 );
 
--- 2️⃣ Batches table
+-- Batches table
 CREATE TABLE batches (
     batch_id SERIAL PRIMARY KEY,
     product_id INT NOT NULL,
@@ -17,7 +17,7 @@ CREATE TABLE batches (
     FOREIGN KEY (product_id) REFERENCES products(product_id)
 );
 
--- 3️⃣ Measurements table
+-- Measurements table
 CREATE TABLE measurements (
     measurement_id SERIAL PRIMARY KEY,
     batch_id INT NOT NULL,
@@ -26,4 +26,3 @@ CREATE TABLE measurements (
     FOREIGN KEY (batch_id) REFERENCES batches(batch_id)
 );
 
-Add initial database schema
